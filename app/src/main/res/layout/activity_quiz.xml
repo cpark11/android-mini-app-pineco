@@ -12,25 +12,26 @@
         android:id="@+id/quiz_question"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+        android:text="temp"
     android:textSize="40dp"
     android:textStyle="bold"
-    android:layout_centerInParent="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="203dp" />
     <Button
         android:id="@+id/b1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Option 1"
-        android:layout_alignTop="@+id/b2"
-        android:layout_toStartOf="@+id/quiz_question"
-        android:layout_marginEnd="41dp" />
+        android:layout_above="@+id/b2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Option 2"
-        android:layout_marginStart="29dp"
+        android:id="@+id/b2"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/quiz_question"
-        android:layout_marginBottom="79dp"
-        android:id="@+id/b2" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
