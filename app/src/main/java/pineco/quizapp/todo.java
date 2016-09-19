@@ -32,7 +32,10 @@ public class todo extends Fragment{
     public void bind(Fragment target){
         this.target=target;
     }
+    public void finishQuiz(int i){
+        String s = QuizTransfer.getFinished().get(i);
 
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
