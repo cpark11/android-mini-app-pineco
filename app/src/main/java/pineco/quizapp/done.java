@@ -20,7 +20,6 @@ public class done extends Fragment{
     }
     private static final int DATASET_COUNT = 2;
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-    protected ArrayList<String> mDataset;
     private RecyclerView quizList;
     protected CustomAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -32,7 +31,6 @@ public class done extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initDataset();
     }
 
     @Override
@@ -45,7 +43,7 @@ public class done extends Fragment{
         mLayoutManager = new LinearLayoutManager(getActivity());
         mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
-        mAdapter = new CustomAdapter(mDataset);
+        mAdapter = new CustomAdapter(QuizTransfer.getFinished());
         // Set CustomAdapter as the adapter for RecyclerView.
         quizList.setAdapter(mAdapter);
         return rootView;
@@ -69,13 +67,5 @@ public class done extends Fragment{
         // Save currently selected layout manager.
         savedInstanceState.putSerializable(KEY_LAYOUT_MANAGER, mCurrentLayoutManagerType);
         super.onSaveInstanceState(savedInstanceState);
-    }
-
-    /**
-     * Generates Strings for RecyclerView's adapter. This data would usually come
-     * from a local content provider or remote server.
-     */
-    private void initDataset() {
-        mDataset = new ArrayList<String>();
     }
 }

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,6 @@ public class todo extends Fragment{
     }
     private static final int DATASET_COUNT = 2;
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-    protected ArrayList<String> mDataset;
     private RecyclerView quizList;
     protected CustomAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -36,7 +36,6 @@ public class todo extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initDataset();
     }
 
     @Override
@@ -49,7 +48,7 @@ public class todo extends Fragment{
         mLayoutManager = new LinearLayoutManager(getActivity());
         mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
-        mAdapter = new CustomAdapter(mDataset);
+        mAdapter = new CustomAdapter(QuizTransfer.getUnfinished());
         // Set CustomAdapter as the adapter for RecyclerView.
         quizList.setAdapter(mAdapter);
         return rootView;
@@ -75,14 +74,10 @@ public class todo extends Fragment{
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    /**
-     * Generates Strings for RecyclerView's adapter. This data would usually come
-     * from a local content provider or remote server.
-     */
-    private void initDataset() {
-        mDataset = new ArrayList<String>();
-        for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add("Quiz" +(i+1));
-        }
-    }
 }
+
+/*
+make list of quizzes have name of actual quiz
+make 2 global lists that have
+
+ */
