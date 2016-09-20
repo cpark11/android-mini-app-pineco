@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:text="Option 1"
         android:layout_above="@+id/b2"
-        android:layout_alignStart="@+id/b2" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
