@@ -25,6 +25,5 @@ public final class QuizTransfer {
     public static void transferToDone(int pos){
         String toMove = unfinished.remove(pos);
         finished.add(toMove);
-        // tell quiz it's moved??
     }
 }

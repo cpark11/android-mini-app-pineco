@@ -42,7 +42,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         public ViewHolder(View v) {
             super(v);
-            // Define click listener for the ViewHolder's View
             textView = (TextView) v.findViewById(R.id.quiz_name);
         }
 

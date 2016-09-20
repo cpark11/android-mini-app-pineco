@@ -33,8 +33,9 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent startQuiz = new Intent(v.getContext(), QuizActivity.class);
-                    v.getContext().startActivity(startQuiz);
+                    Intent intent = new Intent(v.getContext(), QuizActivity.class);
+                    intent.putExtra("methodName","showResults");
+                    v.getContext().startActivity(intent);
                 }
             });
             textView = (TextView) v.findViewById(R.id.quiz_name);
