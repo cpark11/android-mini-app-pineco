@@ -108,4 +108,11 @@ public class UVAQuiz implements Quiz {
             results[i] = 0;
         }
     }
+    public int[] getResultsArray(){
+        return results;
+    }
+
+    public void setResultsArray(int[] a){
+        results = a;
+    }
 }

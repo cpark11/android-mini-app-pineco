@@ -15,7 +15,7 @@ public class UVAActivity extends AppCompatActivity {
     TextView question;
     Button b1;
     Button b2;
-    int i;
+    int i=0;
     ProgressBar mProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class UVAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_uva);
         mProgress = (ProgressBar) findViewById(R.id.progress_bar);
         mb = new UVAQuiz();
-        i = 0;
+        //i = 0;
         mProgress.setProgress((int) ((i + 1) / 0.04));
         currQuestion = mb.getQuestions().get(i);
         question = (TextView) findViewById(R.id.quiz_question);
@@ -81,5 +81,28 @@ public class UVAActivity extends AppCompatActivity {
         String r = mb.getResult();
         question.setText(r);
         QuizTransfer.setUVAResults(r);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+
+        savedInstanceState.putInt("progress", i);
+        savedInstanceState.putIntArray("results", mb.getResultsArray());
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    //onRestoreInstanceState
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restore UI state from the savedInstanceState.
+        // This bundle has also been passed to onCreate.
+        i = savedInstanceState.getInt("progress");
+        int[] savedResultsArray = savedInstanceState.getIntArray("results");
+        mb.setResultsArray(savedResultsArray);
     }
 }

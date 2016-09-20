@@ -25,11 +25,10 @@ public class QuizActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        Toast.makeText(getApplicationContext(), "1. i is: " + i, Toast.LENGTH_LONG).show();
         //quiz setup
         mProgress = (ProgressBar) findViewById(R.id.progress_bar);
         mb = new MyersBriggsQuiz();
-        i = 0;
+        //i = 0;
                 mProgress.setProgress((int) ((i + 1) / 0.7));
                 currQuestion = mb.getQuestions().get(i);
                 question = (TextView) findViewById(R.id.quiz_question);
