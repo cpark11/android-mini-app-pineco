@@ -56,10 +56,10 @@ public class UVAActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mb.recordResponse(currQuestion, currQuestion.getAnswers()[1]);
                 i++;
-                if (i == mb.getQuestions().size() - 1)
+                if (i == mb.getQuestions().size())
                     endQuiz();
                 else {
-                    mProgress.setProgress((int) ((i + 1) / 0.7));
+                    mProgress.setProgress((int) ((i + 1) / 0.04));
                     currQuestion = mb.getQuestions().get(i);
                     question.setText(currQuestion.getText());
                     b1.setText(currQuestion.getAnswers()[0].getText());

@@ -61,7 +61,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mb.recordResponse(currQuestion, currQuestion.getAnswers()[1]);
                 i++;
-                if (i == mb.getQuestions().size() - 1)
+                if (i == mb.getQuestions().size())
                     endQuiz();
                 else {
                     mProgress.setProgress((int) ((i + 1) / 0.7));
