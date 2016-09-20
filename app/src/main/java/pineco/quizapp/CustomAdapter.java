@@ -42,15 +42,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         public ViewHolder(View v) {
             super(v);
-            // Define click listener for the ViewHolder's View.
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent startQuiz = new Intent(v.getContext(), QuizActivity.class);
-                    v.getContext().startActivity(startQuiz);
-                    QuizTransfer.transferToDone(0);
-                }
-            });
+            // Define click listener for the ViewHolder's View
             textView = (TextView) v.findViewById(R.id.quiz_name);
         }
 
@@ -88,6 +80,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(mDataSet.get(position));
+        viewHolder.getTextView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startQuiz=null;
+                if(position==0)
+                    startQuiz= new Intent(v.getContext(), QuizActivity.class);
+                if(position==1)
+                   startQuiz=new Intent(v.getContext(), UVAActivity.class);
+                v.getContext().startActivity(startQuiz);
+                QuizTransfer.transferToDone(position);
+            }
+        });
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)
 
