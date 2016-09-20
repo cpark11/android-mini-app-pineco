@@ -43,7 +43,7 @@ public class QuizActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         mb.recordResponse(currQuestion, currQuestion.getAnswers()[0]);
                         i++;
-                        if (i == mb.getQuestions().size() - 1) {
+                        if (i == mb.getQuestions().size()) {
                             System.out.println(i);
                             question.setText(mb.getResult());
                             endQuiz();
@@ -84,7 +84,9 @@ public class QuizActivity extends AppCompatActivity {
         });
         b1.setText("Return to Quiz List");
         b2.setVisibility(View.INVISIBLE);
-        question.setText(mb.getResult());
+        String r = mb.getResult();
+        question.setText(r);
+        QuizTransfer.setMBResults(r);
     }
 
     @Override

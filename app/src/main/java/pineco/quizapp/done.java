@@ -21,7 +21,7 @@ public class done extends Fragment{
     private static final int DATASET_COUNT = 2;
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
     private RecyclerView quizList;
-    protected CustomAdapter mAdapter;
+    protected DoneAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     protected LayoutManagerType mCurrentLayoutManagerType;
     public done() {
@@ -43,8 +43,8 @@ public class done extends Fragment{
         mLayoutManager = new LinearLayoutManager(getActivity());
         mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
-        mAdapter = new CustomAdapter(QuizTransfer.getFinished());
-        // Set CustomAdapter as the adapter for RecyclerView.
+        mAdapter = new DoneAdapter(QuizTransfer.getFinished());
+        // Set DoneAdapter as the adapter for RecyclerView.
         quizList.setAdapter(mAdapter);
         return rootView;
     }

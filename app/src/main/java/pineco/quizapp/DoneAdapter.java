@@ -3,12 +3,13 @@ package pineco.quizapp;
 /**
  * Created by Candace on 9/18/2016.
  */
-import android.content.Intent;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,15 +30,6 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
 
         public ViewHolder(View v) {
             super(v);
-            // Define click listener for the ViewHolder's View.
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), QuizActivity.class);
-                    intent.putExtra("methodName","showResults");
-                    v.getContext().startActivity(intent);
-                }
-            });
             textView = (TextView) v.findViewById(R.id.quiz_name);
         }
 
@@ -76,6 +68,19 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(mDataSet.get(position));
+        viewHolder.getTextView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(mDataSet.get(position) == "MyersBriggsQuiz"){
+                    Toast.makeText(v.getContext(), QuizTransfer.getMBResults(), Toast.LENGTH_LONG).show();
+                }
+                if(mDataSet.get(position) == "UVA Quiz"){
+                    Toast.makeText(v.getContext(), QuizTransfer.getUVAResults(), Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)
 
