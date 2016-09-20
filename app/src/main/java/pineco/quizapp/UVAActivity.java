@@ -1,6 +1,7 @@
 package pineco.quizapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,10 +21,14 @@ public class UVAActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println(i);
         setContentView(R.layout.activity_uva);
         mProgress = (ProgressBar) findViewById(R.id.progress_bar);
         mb = new UVAQuiz();
-        //i = 0;
+        if(savedInstanceState!=null)
+            i=savedInstanceState.getInt("progress");
+        else
+            i=0;
         mProgress.setProgress((int) ((i + 1) / 0.04));
         currQuestion = mb.getQuestions().get(i);
         question = (TextView) findViewById(R.id.quiz_question);
@@ -37,8 +42,8 @@ public class UVAActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mb.recordResponse(currQuestion, currQuestion.getAnswers()[0]);
                 i++;
+                System.out.println(i);
                 if (i == mb.getQuestions().size()) {
-                    System.out.println(i);
                     question.setText(mb.getResult());
                     endQuiz();
 

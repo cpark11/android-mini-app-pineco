@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 
 import java.util.ArrayList;
-
+//https://developer.android.com/samples/RecyclerView/src/com.example.android.recyclerview/RecyclerViewFragment.html
 public class done extends Fragment{
 
     private enum LayoutManagerType {

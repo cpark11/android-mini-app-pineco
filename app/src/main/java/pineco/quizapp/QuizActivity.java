@@ -28,7 +28,10 @@ public class QuizActivity extends AppCompatActivity {
         //quiz setup
         mProgress = (ProgressBar) findViewById(R.id.progress_bar);
         mb = new MyersBriggsQuiz();
-        //i = 0;
+        if(savedInstanceState!=null)
+            i = savedInstanceState.getInt("progress");
+        else
+            i=0;
                 mProgress.setProgress((int) ((i + 1) / 0.7));
                 currQuestion = mb.getQuestions().get(i);
                 question = (TextView) findViewById(R.id.quiz_question);

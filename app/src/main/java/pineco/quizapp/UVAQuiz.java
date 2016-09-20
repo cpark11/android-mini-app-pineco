@@ -44,6 +44,7 @@ public class UVAQuiz implements Quiz {
         )
         );
     }
+
     private List<QuizQuestion> questionList;
     public List<QuizQuestion> getQuestions() {
         return this.questionList;

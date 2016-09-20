@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+//https://developer.android.com/samples/RecyclerView/src/com.example.android.recyclerview/RecyclerViewFragment.html
 public class todo extends Fragment{
 
     private enum LayoutManagerType {
