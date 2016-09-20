@@ -15,7 +15,7 @@ public class UVAActivity extends AppCompatActivity {
     TextView question;
     Button b1;
     Button b2;
-    int i=0;
+    int i;
     ProgressBar mProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
